@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Clipboard</title>
+{% endblock %}
+
+{% block body %}
+<div>
+    <h1 style="text-align: center">Clipboard</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">There are no tasks. Create one below.</h4>
+    {% else %}
+    <table class="content">
+        <tr>
+            <th>Name</th>
+            <th>Content</th>
+            <th>Click to copy</th>
+            <th>Update / Delete</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td><pre lang="python">{{ task.item_name }}</pre></td>
+                <td><div class="highlight"><pre lang="python"><code>{{ task.content }}</code></pre></div></td>
+                <td>
+                    <button class="btn" data-clipboard-text="{{ task.content }}">
+                        Copy
+                    </button>
+                </td>
+                <td>
+                    <a href="/update/{{task.id}}">Update</a>
+                    <br>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <br>
+    <form action="/" method="POST" class="content">
+        <label for="item_name">Clipboard item name:</label><br>
+        <input type="text" name="item_name" id="item_name"><br>
+        <label for="content">Clipboard item content:</label><br>
+        <input type="text" name="content" id="content"><br>
+        <input type="submit" value="Add clipboard item">
+    </form>
+</script>
+<script type=text/javascript src="{{ url_for('static', filename='js/clipboard.js/dist/clipboard.min.js') }}"></script>
+<script type="text/javascript">
+    new ClipboardJS('.btn');
+</script>    
+</div>
+{% endblock %}

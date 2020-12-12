@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Clipboard</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Update Clipboard</h1>
+
+    <form action="/update/{{task.id}}" method="POST">
+        <label for="item_name">Update item name:</label><br>
+        <input type="text" name="item_name" id="item_name" value="{{task.item_name}}"><br>
+        <label for="content">Update item content:</label><br>
+        <input type="text" name="content" id="content" value="{{task.content}}"><br>
+        <input type="submit" value="Update">
+    </form>
+</div>
+{% endblock %}
