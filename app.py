@@ -39,7 +39,7 @@ def index():
             return 'There was an issue adding your task'
 
     else:
-        tasks = Clipboard.query.order_by(Clipboard.date_created).all()
+        tasks = Clipboard.query.order_by(Clipboard.item_name).all()
         return render_template('index.html', tasks=tasks)
 
 @app.route('/delete/<int:id>')
