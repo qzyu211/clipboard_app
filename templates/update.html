@@ -9,6 +9,8 @@
     <h1 style="text-align: center">Update Clipboard</h1>
 
     <form action="/update/{{task.id}}" method="POST">
+        <label for="order_id">Update order index:</label><br>
+        <input type="text" name="order_id" id="order_id" value="{{task.order_id}}"><br><br>
         <label for="item_name">Update item name:</label><br>
         <input type="text" name="item_name" id="item_name" value="{{task.item_name}}"><br><br>
         <label for="content">Update item content:</label><br>
