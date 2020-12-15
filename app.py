@@ -20,13 +20,13 @@ class Clipboard(db.Model):
 
 @event.listens_for(Clipboard.__table__, 'after_create')
 def create_clipboard_items(*args, **kwargs):
-    for index, (key, value) in enumerate(setup_dic.items()):
-        db.session.add(Clipboard(item_name=key, order_id=index, content=setup_dic[key]))
-    # db.session.add(Clipboard(item_name='Name', content='Your name'))
-    # db.session.add(Clipboard(item_name='Email', content='email@address.com'))
-    # db.session.add(Clipboard(item_name='Address', content='123 Blvd.'))
-    # db.session.add(Clipboard(item_name='LinkedIn', content='https://www.linkedin.com/in/your-li-name/'))
-    # db.session.add(Clipboard(item_name='GitHub Page', content='https://your-github-page.github.io'))
+    # for index, (key, value) in enumerate(setup_dic.items()):
+        # db.session.add(Clipboard(item_name=key, order_id=index, content=setup_dic[key]))
+    db.session.add(Clipboard(item_name='Name', order_id=0, content='Your name'))
+    db.session.add(Clipboard(item_name='Email', order_id=1, content='email@address.com'))
+    db.session.add(Clipboard(item_name='Address', order_id=2, content='123 Blvd.'))
+    db.session.add(Clipboard(item_name='LinkedIn', order_id=3, content='https://www.linkedin.com/in/your-li-name/'))
+    db.session.add(Clipboard(item_name='GitHub Page', order_id=4, content='https://your-github-page.github.io'))
     db.session.commit()
 
 @app.route('/', methods=['POST', 'GET'])
