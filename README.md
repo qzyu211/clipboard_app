@@ -4,4 +4,4 @@ This is a repo for a Clipboard app. The app allows users to add named entries in
 It is largely inspired from an introductory Flask app tutorial by FreeCodeCamp. It adapts this basic database to incorporate a button that copies content cells to a clipboard via the click of the mouse.
 
 Screenshot:
-![screenshot](https://i.imgur.com/2fvR1Ar.png)
+![screenshot](https://i.imgur.com/22KFYpn.png)
