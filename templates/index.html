@@ -11,7 +11,7 @@
     <h4 style="text-align: center">There are no tasks. Create one below.</h4>
     {% else %}
     <!-- <table class="content"> -->
-    <table class="table table-striped table-hover mx-auto w-auto">
+    <table class="table table-striped table-hover mx-auto w-auto" width="600">
         <tr>
             <th class="text-center">Order index</th>
             <th class="text-center">Name</th>
@@ -23,7 +23,7 @@
             <tr>
                 <td><pre lang="python">{{ task.order_id }}</pre></td>
                 <td><pre lang="python">{{ task.item_name }}</pre></td>
-                <td><div class="highlight"><pre lang="python"><code>{{ task.content }}</code></pre></div></td>
+                <td style="max-width:400px;"><div class="highlight"><pre lang="python"><code>{{ task.content }}</code></pre></div></td>
                 <td>
                     <button class="btn" data-clipboard-text="{{ task.content }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-plus" viewBox="0 0 16 16">

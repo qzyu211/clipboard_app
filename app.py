@@ -22,11 +22,6 @@ class Clipboard(db.Model):
 def create_clipboard_items(*args, **kwargs):
     for index, (key, value) in enumerate(setup_dic.items()):
         db.session.add(Clipboard(item_name=key, order_id=index, content=setup_dic[key]))
-    # db.session.add(Clipboard(item_name='Name', content='Your name'))
-    # db.session.add(Clipboard(item_name='Email', content='email@address.com'))
-    # db.session.add(Clipboard(item_name='Address', content='123 Blvd.'))
-    # db.session.add(Clipboard(item_name='LinkedIn', content='https://www.linkedin.com/in/your-li-name/'))
-    # db.session.add(Clipboard(item_name='GitHub Page', content='https://your-github-page.github.io'))
     db.session.commit()
 
 @app.route('/', methods=['POST', 'GET'])
@@ -77,6 +72,6 @@ def update(id):
         return render_template('update.html', task=task)
 
 if __name__ == "__main__":
-    # app.run(debug=True)
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(debug=True)
+    # port = int(os.environ.get("PORT", 5000))
+    # app.run(host="0.0.0.0", port=port)
